@@ -36,7 +36,7 @@ const StyledForm = styled.form`
     cursor:pointer;
     transition:background .2s ease-out;
     &:hover {
-      color: #03A9F4;
+      background-color: #2284d2;
     }
   }
 `
@@ -50,10 +50,21 @@ class Form extends React.PureComponent {
     }
   }
 
+  /**
+   * update state on text input onChange event
+   * 
+   * @memberof Form
+   */
   onChange = event => {
     this.setState({ title: event.target.value })
   }
   
+  /**
+   * check if title is not empty. then call a 
+   * addcounter rest api method then update the state
+   * 
+   * @memberof Form
+   */
   onSubmit = event => {
     event.preventDefault()
     const { title } = this.state
@@ -65,6 +76,13 @@ class Form extends React.PureComponent {
     }
   }
   
+  /**
+   * addCounter async / await function
+   * 
+   * @param {any} title 
+   * @returns 
+   * @memberof Form
+   */
   async addCounter(title) {
     try {
       return await instance.addCounter(title)
@@ -86,6 +104,7 @@ class Form extends React.PureComponent {
 }
 
 Form.proptypes = {
+  onUpdate: PropTypes.func
 }
 
 Form.defaultProps = {
