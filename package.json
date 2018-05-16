@@ -7,6 +7,9 @@
     "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
+    "@fortawesome/react-fontawesome": "^0.0.20",
     "apisauce": "^0.14.3",
     "babel-plugin-styled-components": "^1.1.5",
     "body-parser": "^1.10.1",
