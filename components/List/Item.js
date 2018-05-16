@@ -38,7 +38,6 @@ const ActionButton = styled.button `
     }
   }
 `
-
 const Title = styled.span`
   padding-left: 10px;
 `

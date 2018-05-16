@@ -27,18 +27,33 @@ const UL = styled.ul`
 
 class List extends React.PureComponent {
 
+  /**
+   * increment specific counter
+   * 
+   * @memberof List
+   */
   onIncrement = id => {
     this.incrementCounter(id).then(res => {
       this.props.onUpdate(res.data)
     })
   }
 
+  /**
+   * decrement specific counter
+   * 
+   * @memberof List
+   */
   onDecrement = id => {
     this.decrementCounter(id).then(res => {
       this.props.onUpdate(res.data)
     })
   }
 
+  /**
+   * delete selected item
+   * 
+   * @memberof List
+   */
   onDeleteCounter = id => {
     this.deleteCounter(id).then(res => {
       this.props.onUpdate(res.data)
