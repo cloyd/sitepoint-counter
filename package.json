@@ -20,6 +20,7 @@
     "next": "^6.0.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-spring": "^5.1.10",
     "styled-components": "^2.1.0"
   },
   "license": "ISC"
