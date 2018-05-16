@@ -23,6 +23,11 @@ const ActionButton = styled.button `
   &:focus {
     outline: none;
   }
+  &:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    color: #bfbfbf;
+  }
 `
 const Counter = styled.span `
   padding: 0 20px;
@@ -32,7 +37,7 @@ const ListItem = ({item, onIncrement, onDecrement}) => (
   <React.Fragment>
     <span className="label">{item.title}</span>
     <Actions>
-      <ActionButton type="button" aria-label="Delete" title="Delete" onClick={ () => { if (item.count > 0) onDecrement(item.id) } }>
+      <ActionButton disabled={item.count < 1} type="button" aria-label="Delete" title="Delete" onClick={ () => { if (item.count > 0) onDecrement(item.id) } }>
         <FontAwesomeIcon icon={faMinus}/>
       </ActionButton>
       <Counter>{item.count || 0}</Counter>
