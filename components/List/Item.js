@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import { faPlus, faMinus } from '@fortawesome/fontawesome-free-solid'
+import { faPlus, faMinus, faTimesCircle } from '@fortawesome/fontawesome-free-solid'
 
 const Actions = styled.div`
   display:flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  min-width: 80px;
 `
 const ActionButton = styled.button `
   border:none;
@@ -15,6 +16,7 @@ const ActionButton = styled.button `
   color:#FFF;
   transition: transform 60ms ease-out;
   cursor: pointer;
+  
   &:active {
     transform: translateY(2px);
     transition: transform 100ms ease-out;
@@ -28,19 +30,32 @@ const ActionButton = styled.button `
     pointer-events: none;
     color: #bfbfbf;
   }
-`
-const Counter = styled.span `
-  padding: 0 20px;
+
+  &.no-anim {
+    &:active {
+    transform: translateY(0);
+    transition: none;
+    }
+  }
 `
 
-const ListItem = ({item, onIncrement, onDecrement}) => (
+const Title = styled.span`
+  padding-left: 10px;
+`
+
+const ListItem = ({item, onIncrement, onDecrement, onDeleteCounter}) => (
   <React.Fragment>
-    <span className="label">{item.title}</span>
+    <div style={{marginLeft: '5px'}}>
+      <ActionButton className='no-anim' type="button" aria-label="Delete" title="Delete" onClick={ () => onDeleteCounter(item.id) }>
+        <FontAwesomeIcon icon={faTimesCircle}/>
+      </ActionButton>
+      <Title className="label">{item.title}</Title>
+    </div>
     <Actions>
       <ActionButton disabled={item.count < 1} type="button" aria-label="Delete" title="Delete" onClick={ () => { if (item.count > 0) onDecrement(item.id) } }>
         <FontAwesomeIcon icon={faMinus}/>
       </ActionButton>
-      <Counter>{item.count || 0}</Counter>
+      <span>{item.count || 0}</span>
       <ActionButton type="button" aria-label="Delete" title="Delete" onClick={ () => onIncrement(item.id) }>
         <FontAwesomeIcon icon={faPlus}/>
       </ActionButton>
