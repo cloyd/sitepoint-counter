@@ -24,16 +24,16 @@ const API = () => {
 
   const getCounters = () => api.get('counters')
   const addCounter = title => api.post('counter', {title})
+  const deleteCounter = id => api.delete('counter', {}, {data: {id}})
   const incrementCounter = item => api.post('counter/inc', item)
   const decrementCounter = item => api.post('counter/dec', item)
-  const deleteCounter = title => api.post('counter', title)
 
   return {
     getCounters,
     addCounter,
+    deleteCounter,
     incrementCounter,
     decrementCounter,
-    deleteCounter
   }
 }
 
