@@ -66,7 +66,8 @@ const ListItem = ({item, onIncrement, onDecrement, onDeleteCounter}) => (
 ListItem.proptypes = {
   item: PropTypes.object,
   onIncrement: PropTypes.func,
-  onDecrement: PropTypes.func
+  onDecrement: PropTypes.func,
+  onDeleteCounter: PropTypes.func
 }
 
 ListItem.defaultProps = {
