@@ -40,3 +40,12 @@ or
 ```sh
 npm run build
 ```
+
+Start a production build server:
+```sh
+yarn start
+```
+or
+```sh
+npm run start
+```
