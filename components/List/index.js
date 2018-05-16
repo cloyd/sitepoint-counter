@@ -39,6 +39,12 @@ class List extends React.PureComponent {
     })
   }
 
+  onDeleteCounter = id => {
+    this.deleteCounter(id).then(res => {
+      this.props.onUpdate(res.data)
+    })
+  }
+
   async incrementCounter(id) {
     try {
       return await instance.incrementCounter({id})
@@ -55,6 +61,14 @@ class List extends React.PureComponent {
     }
   }
 
+  async deleteCounter(id) {
+    try {
+      return await instance.deleteCounter(id)
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   render() {
     const { lists } = this.props
     return (
@@ -64,9 +78,8 @@ class List extends React.PureComponent {
           native
           keys={lists.map(item => item.id)}
           from={{ opacity: 0, height: 0 }}
-          enter={{ opacity: 1, height: 60 }}
-          leave={{ opacity: 0, height: 0 }}>
-          { lists.map(item => styles => <animated.li style={{...styles}} key={item.id}><ListItem style={{ ...styles }}  item={item} onIncrement={this.onIncrement} onDecrement={this.onDecrement} /> </animated.li>) }
+          enter={{ opacity: 1, height: 60 }}>
+          { lists.map(item => styles => <animated.li style={styles} key={item.id}><ListItem item={item} onIncrement={this.onIncrement} onDecrement={this.onDecrement} onDeleteCounter={this.onDeleteCounter}/> </animated.li>) }
         </Transition>
         }
       </UL>
