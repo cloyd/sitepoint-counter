@@ -77,8 +77,8 @@ class List extends React.PureComponent {
         <Transition
           native
           keys={lists.map(item => item.id)}
-          from={{ opacity: 0, height: 0 }}
-          enter={{ opacity: 1, height: 60 }}>
+          from={{ opacity: 0, maxHeight: 0 }}
+          enter={{ opacity: 1, maxHeight: 60 }}>
           { lists.map(item => styles => <animated.li style={styles} key={item.id}><ListItem item={item} onIncrement={this.onIncrement} onDecrement={this.onDecrement} onDeleteCounter={this.onDeleteCounter}/> </animated.li>) }
         </Transition>
         }
