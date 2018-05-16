@@ -1,8 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
+// Utils
+import instanceAPI from '../utils/api'
+
 //  Components
 import Header from '../components/Header'
+import Form from '../components/Form'
+import List from '../components/List'
+
+const api = instanceAPI.API()
 
 const Container = styled.main`
   margin:4rem auto;
@@ -36,13 +43,12 @@ const staticArray = [
     "count": 1
   }
 ]
-
 class App extends React.Component {
 
   static async getInitialProps() {
-    // const res = await instance.getCounters()
+    const res = await api.getCounters()
     return { 
-      counters: staticArray
+      counters: res.data
     }
   }
 
@@ -63,6 +69,11 @@ class App extends React.Component {
     return (
       <Container>
         <Header heading="Sitepoint Counter" subHeading="a demo app using React.js"/>
+        <Form onUpdate={this.onUpdate}/>
+        <List lists={counters} onUpdate={this.onUpdate} />
+        <Total>
+          <h2>Total: {total}</h2>
+        </Total>
       </Container>
     )
   }
