@@ -19,6 +19,7 @@ const Container = styled.main`
   background: linear-gradient(#2196F3, #9198e5);
 	color:#FFF;
 	box-shadow:-20px -20px 0px 0px rgba(100,100,100,.1);
+  min-height: 80vh;
 `
 
 const Total = styled.div`
