@@ -61,6 +61,11 @@ class App extends React.Component {
     }
   }
 
+  /**
+   * update lists state and calculate the total count
+   * 
+   * @memberof App
+   */
   onUpdate = list => {
     this.setState({counters: list, total: list.reduce((a, o) => a + o.count, 0)})
   }
