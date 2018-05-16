@@ -15,6 +15,8 @@ export default class MyDocument extends Document {
         <Head>
           <title>Counter App</title>
           {this.props.styleTags}
+          <meta name="theme-color" content="#2196F3" />
+					<link rel="manifest" href="static/manifest.json" />
         </Head>
         <body>
           <Main />

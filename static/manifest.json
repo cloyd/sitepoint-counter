@@ -1,0 +1,8 @@
+{
+  "name": "SitePoint Counter",
+  "short_name": "SitePoint-Counter",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#2196F3",
+  "background_color": "#000000"
+}
